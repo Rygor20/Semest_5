@@ -1,0 +1,43 @@
+Projekt kompilatora stworzony w ramach kursu Języki Formalne i Techniki Translacji w semestrze zimowym 2023/2024
+
+Autor: Igor Misiek
+
+----------------------------------------------------------------------------------------------------------------
+
+Przy tworzeniu kompilatora użyto:
+- Flex
+- Bison
+- g++
+
+----------------------------------------------------------------------------------------------------------------
+
+Dostarczone pliki:
+- lexer.l - analizator leksykalny
+- parser.y - analizator składniowy
+- utils.hpp - plik nagłówkowy zawierający zmienne globalne i wartości typu enum
+- identifiers.hpp - plik nagłówkowy zawierający definicję struktury oraz funkcji wykorzystywanych do tworzenia
+    i kontrolowania zmiennych występujących w analizowanym kodzie
+- identifiers.cpp - rozwiniędzie pliku nagłówkowego identifiers.hpp
+- compiler.hpp - plik nagłówkowy zaiwerający definicję struktury i funkcji wykorzystywanych do poprawnego
+    budowania kodu wynikowego na maszynę wirtualną
+- compiler.cpp - rozwiniędzie pliku nagłówkowego compiler.hpp
+
+----------------------------------------------------------------------------------------------------------------
+
+Funkcjonalność programu została przetestowana na systemie Ubuntu. Implementacja korzysta z języka C++
+
+W celu kompilacji programu należy w katalogu z plikami źródłowymi wywołać polecenie:
+  make
+
+Skompilowany program uruchamia się poleceniem:
+  ./kompilator input_file_path output_file_path
+
+----------------------------------------------------------------------------------------------------------------
+
+Po pomyślnej kompilacji w miejscu wskazanym przez output_file_path otrzymany zostanie plik możliwy do 
+uruchomienia na maszynie wirtualnej dostarczonej przez prowadzącego kurs. W razie wystąpienia mniejszych błędów
+mogących powodować błędy obliczeniowe użytkownik w konsoli otrzyma ostrzeżenie. Jeżeli błąd będzie w każdym
+przypadku uniemożliwiał poprawne działanie programu zgodnie z gramatyką dostarczonego języka w konsoli pojawi 
+się komunikat błędu, kompilacja zostaniee przerwana a plik wynikowy nie będzie utworzony lub nadpisany. 
+Zarówno ostrzeżenia jak i komunikaty błędów zawierają w sobie możliwie dokładny opis tego, co mogło zadziałać 
+wadliwie jak i numer linii kodu źródłowego, w której wskazany błąd wystąpił.
